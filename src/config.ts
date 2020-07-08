@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const {
   REACT_APP_TRONSCAN_ADDRESS = "",
   REACT_APP_EXPLORER_ADDRESS = "",
