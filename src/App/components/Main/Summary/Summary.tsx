@@ -5,8 +5,8 @@ import "./Summary.scss";
 
 const Summary = ({ displayAmount, displayValue, fromCurrency, toCurrency }) => {
   return (
-    <Row justify="center" className="Summary">
-      <Col className="container__column">
+    <div className="Summary">
+      <div className="container__column">
         <Row
           gutter={[{ xs: 0, sm: 0, md: 16, lg: 32 }, 0]}
           className="Summary__inner"
@@ -59,8 +59,8 @@ const Summary = ({ displayAmount, displayValue, fromCurrency, toCurrency }) => {
             </div>
           </Col>
         </Row>
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 };
 export default Summary;
