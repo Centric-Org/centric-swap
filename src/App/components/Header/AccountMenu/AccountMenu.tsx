@@ -22,7 +22,7 @@ const AccountMenu = ({ balances, walletStatus, address, toggleGuide }) => {
       </Menu.Item>
       <Divider />
       {walletStatus === WalletStatus.CONNECTED && address.length && (
-        <Menu.Item>
+        <Menu.Item className="AccountMenu__item">
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -32,17 +32,12 @@ const AccountMenu = ({ balances, walletStatus, address, toggleGuide }) => {
           </a>
         </Menu.Item>
       )}
-      <Menu.Item>
+      <Menu.Item className="AccountMenu__item">
         <a target="_blank" rel="noopener noreferrer" href={EXPLORER_ADDRESS}>
           Explorer
         </a>
       </Menu.Item>
-      <Menu.Item className="AccountMenu__guideTrigger">
-        <Button type="link" onClick={() => toggleGuide(true)}>
-          About Centric Swap
-        </Button>
-      </Menu.Item>
-      <Menu.Item>
+      {/*<Menu.Item className="AccountMenu__item">
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -50,6 +45,11 @@ const AccountMenu = ({ balances, walletStatus, address, toggleGuide }) => {
         >
           FAQ
         </a>
+      </Menu.Item>*/}
+      <Menu.Item className="AccountMenu__guideTrigger">
+        <Button type="link" onClick={() => toggleGuide(true)}>
+          About Centric Swap
+        </Button>
       </Menu.Item>
     </Menu>
   );

@@ -12,10 +12,16 @@
     color: #fff !important;
     cursor: default;
   }
-  &__guideTrigger {
-
+  &__item {
     height: 22px !important;
     line-height: 22px !important;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+  }
+  &__guideTrigger {
+    height: 22px !important;
+    line-height: 22px !important;
+    margin-bottom: 20px !important;
     > button {
       padding: 0;
       color: rgba(255, 255, 255, 0.65);
