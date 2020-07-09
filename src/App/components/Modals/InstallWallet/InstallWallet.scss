@@ -1,0 +1,51 @@
+.InstallWallet {
+  text-align: center;
+  > .ant-modal-content {
+    background: rgba(255, 255, 255, 0.9);
+    > .ant-modal-header {
+      background-color: #0c2c63;
+      > .ant-modal-title {
+        color: #fff;
+      }
+    }
+    > .ant-modal-close {
+      color: #fff;
+    }
+  }
+  &__cover {
+    display: flex;
+    justify-content: center;
+    padding: 10px 6px 0;
+  }
+  .ant-card-body {
+    padding-bottom: 12px;
+    @media (max-width: 576px) {
+      padding-top: 10px;
+    }
+  }
+  &__meta {
+    .ant-card-meta-description {
+      line-height: 20px;
+    }
+  }
+  .Icon__android {
+    max-width: 44%;
+    padding: 2px;
+    @media (max-width: 576px) {
+      max-width: 70px;
+    }
+  }
+  .Icon__apple {
+    max-width: 53%;
+    padding: 2px;
+    @media (max-width: 576px) {
+      max-width: 70px;
+    }
+  }
+  .Icon__chrome {
+    max-width: 53%;
+    @media (max-width: 576px) {
+      max-width: 150px;
+    }
+  }
+}

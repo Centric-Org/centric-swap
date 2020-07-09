@@ -27,7 +27,7 @@ const renderStatus = (status) => {
   }
 };
 
-const Header = ({ activeWallet, account }) => {
+const Header = ({ activeWallet, account, toggleGuide }) => {
   const { walletStatus, address } = activeWallet;
   return (
     <header className="Header">
@@ -43,6 +43,7 @@ const Header = ({ activeWallet, account }) => {
               balances={account}
               walletStatus={walletStatus}
               address={address}
+              toggleGuide={toggleGuide}
             />
           }
         >

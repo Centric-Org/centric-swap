@@ -9,6 +9,9 @@ import cnrText from "./cnr_text.svg";
 import cnsText from "./cns_text.svg";
 import summaryArrow from "./summary_arrow.svg";
 import swapText from "./swap_text.svg";
+import apple_appstore_icon from "./apple_appstore_icon.png";
+import chrome_web_icon from "./chrome_web_icon.png";
+import google_playstore_icon from "./google_playstore_icon.png";
 
 const RiseIcon = () => (
   <img src={riseIcon} className="Icon Icon__tokenIcon" alt="" />
@@ -50,6 +53,26 @@ const SwapText = () => (
   <img src={swapText} className="Icon Icon__swapText" alt="Confirm Swap" />
 );
 
+const AppleStoreIcon = () => (
+  <img
+    src={apple_appstore_icon}
+    className="Icon Icon__apple"
+    alt="Apple App Store"
+  />
+);
+
+const GooglePlayIcon = () => (
+  <img
+    src={google_playstore_icon}
+    className="Icon Icon__android"
+    alt="Google Play Store"
+  />
+);
+
+const ChromeStoreIcon = () => (
+  <img src={chrome_web_icon} className="Icon Icon__chrome" alt="Chrome Store" />
+);
+
 const ShowIcon = ({ icon }) => {
   switch (icon) {
     case "cnr":
@@ -72,6 +95,12 @@ const ShowIcon = ({ icon }) => {
       return <SummaryArrow />;
     case "swap_text":
       return <SwapText />;
+    case "appStore":
+      return <AppleStoreIcon />;
+    case "playStore":
+      return <GooglePlayIcon />;
+    case "chromeStore":
+      return <ChromeStoreIcon />;
     default:
       return <img alt="" />;
   }

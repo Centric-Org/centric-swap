@@ -3,11 +3,11 @@ import { EXPLORER_ADDRESS } from "../../../../config";
 import { WalletStatus } from "../../../store/models";
 import { ShowIcon } from "../../";
 import { formatLocal } from "../../../../utils/number";
-import { Menu } from "antd";
+import { Menu, Button } from "antd";
 import "./AccountMenu.scss";
 const { Divider } = Menu;
 
-const AccountMenu = ({ balances, walletStatus, address }) => {
+const AccountMenu = ({ balances, walletStatus, address, toggleGuide }) => {
   const { trx, cnr, cns } = balances;
   return (
     <Menu theme={"dark"} className="AccountMenu">
@@ -36,6 +36,11 @@ const AccountMenu = ({ balances, walletStatus, address }) => {
         <a target="_blank" rel="noopener noreferrer" href={EXPLORER_ADDRESS}>
           Explorer
         </a>
+      </Menu.Item>
+      <Menu.Item className="AccountMenu__guideTrigger">
+        <Button type="link" onClick={() => toggleGuide(true)}>
+          About Centric Swap
+        </Button>
       </Menu.Item>
       <Menu.Item>
         <a

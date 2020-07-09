@@ -1,5 +1,4 @@
-import { useEffect, useCallback, useState } from "react";
-import tronService from "../services/Tron.service";
+import { useEffect, useState } from "react";
 import {
   AccountStatus,
   WalletStatus,

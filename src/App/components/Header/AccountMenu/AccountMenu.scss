@@ -12,6 +12,19 @@
     color: #fff !important;
     cursor: default;
   }
+  &__guideTrigger {
+
+    height: 22px !important;
+    line-height: 22px !important;
+    > button {
+      padding: 0;
+      color: rgba(255, 255, 255, 0.65);
+      height: auto;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
   &__balance {
     &:first-child {
       margin-top: 12px !important;
