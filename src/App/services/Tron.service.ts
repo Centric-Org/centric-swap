@@ -22,36 +22,30 @@ class TronService {
 
   public async getAccount(address: string) {
     try {
-      const options = { only_confirmed: false };
-      const { data, success } = await this.getAccountInfo(address, options);
-      if (success) {
-        const accountInfo = data[0];
-        let trc20s: any[] = [];
-        trc20s = accountInfo.trc20;
-        let riseBalance: number = 0;
-        let cashBalance: number = 0;
-        [riseBalance] = Object.values(
-          trc20s.find((item) => {
-            return item[RISE_CONTRACT_ADDRESS];
-          }) || { balance: 0 }
-        );
-        [cashBalance] = Object.values(
-          trc20s.find((item) => {
-            return item[CASH_CONTRACT_ADDRESS];
-          }) || { balance: 0 }
-        );
+      if (
+        !this.tronWeb ||
+        !this.tronWeb.defaultAddress.base58 ||
+        !this.riseContract ||
+        !this.cashContract
+      )
+        throw new Error(ValidationMessage.PRICE);
 
-        const unconfirmedBalance = await this.getBalanceInSun(address);
-        const trxBalance = TronWebService.fromSun(unconfirmedBalance);
+      const unconfirmedBalance = await this.getBalanceInSun(address);
+      const trxBalance = TronWebService.fromSun(unconfirmedBalance);
 
-        return {
-          riseBalance: formatDecimal(riseBalance),
-          cashBalance: formatDecimal(cashBalance),
-          trxBalance,
-        };
-      } else {
-        throw new Error("Wallet not found");
-      }
+      const riseBalancePromise = this.riseContract.balanceOf(address).call();
+      const cashBalancePromise = this.cashContract.balanceOf(address).call();
+
+      const [riseBalance, cashBalance] = await Promise.all([
+        riseBalancePromise,
+        cashBalancePromise,
+      ]);
+
+      return {
+        riseBalance: formatDecimal(riseBalance),
+        cashBalance: formatDecimal(cashBalance),
+        trxBalance,
+      };
     } catch (e) {
       throw e;
     }
@@ -113,11 +107,12 @@ class TronService {
                   `Transaction ${transactionId} failed. Reason: ${transactionResult}`
                 )
               );
+            } else {
+              numOfRetries--;
+              setTimeout(function () {
+                checkTransaction();
+              }, 1000);
             }
-            numOfRetries--;
-            setTimeout(function () {
-              checkTransaction();
-            }, 1000);
           } else {
             if (!this.tronWeb || !this.tronWeb.defaultAddress.base58)
               reject(ValidationMessage.WALLETCONNECT);
