@@ -17,6 +17,9 @@
     height: 32px;
     top: 38%;
     color: rgba($color: #fff, $alpha: 0.4);
+    .anticon:not(.anticon-down) {
+      pointer-events: none !important;
+    }
   }
   &:hover {
     .ant-select-arrow {

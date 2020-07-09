@@ -26,7 +26,7 @@ const CurrencySelect = ({
       dropdownClassName="CurrencySelect__options"
       size="large"
       bordered={false}
-      suffixIcon={<CaretDownOutlined />}
+      suffixIcon={<CaretDownOutlined onClick={() => onCurrencyChange} />}
     >
       <Option value={Currency.CNR}>
         <div className="CurrencySelect__option">
