@@ -16,9 +16,10 @@ const Guide = ({ isVisible, toggleVisible }) => {
     >
       <h4>About Centric Swap</h4>
       <p>
-        Centric Swap converts Centric tokens from one type to the other. It
+        Centric Swap swiftly converts Centric tokens between Centric Rise{" "}
+        <strong>(CNR)</strong> and Centric Cash <strong>(CNS)</strong>. It
         offers a decentralized alternative to Centric Rise and Centric Cash
-        holders who do not wish to store their Centric tokens at the{" "}
+        holders who do not wish to store their Centric tokens on the{" "}
         <a
           href="https://wallet.joincentic.com"
           target="_blank"
@@ -26,20 +27,22 @@ const Guide = ({ isVisible, toggleVisible }) => {
         >
           Official Centric Wallet
         </a>
+        .
       </p>
       <p>
         Before using Centric Swap to convert your Centric tokens please review
-        the below should I use Centric Swap checklist.
+        the questions below; Is Centric Swap Right For Me?
       </p>
       <Divider />
-      <h4>Should I use Centric Swap checklist</h4>
+      <h4>Is Centric Swap Right For Me?</h4>
       <ul className="Guide__checklist">
         <li>
-          I hold Centric Rise (CNR) or Centric Cash (CNS) and want to convert
-          between them
+          Do I hold Centric Rise <strong>(CNR)</strong> or Centric Cash{" "}
+          <strong>(CNS)</strong> and want to convert between them?
         </li>
         <li>
-          I store my Centric Rise (CNR) or Centric Cash (CNS) at the{" "}
+          Would I prefer not to store my <strong>(CNR)</strong> or{" "}
+          <strong>(CNS)</strong> on the{" "}
           <a
             href="https://wallet.joincentic.com"
             target="_blank"
@@ -47,18 +50,26 @@ const Guide = ({ isVisible, toggleVisible }) => {
           >
             Official Centric Wallet
           </a>
+          ?
         </li>
         <li>
-          I’m happy to pay a small transaction fee in TRX (Tron) to convert my
-          tokens (approx. 0.25 - 0.5 TRX)
+          Do I want to pay a small transaction fee, approx 0.25 - 0.5, in Tron{" "}
+          <strong>(TRX)</strong>, to convert my tokens?
         </li>
         <li>
-          I have TRX (Tron) to pay transaction fees or I know how to buy it from
-          exchanges
+          Do I have Tron <strong>(TRX)</strong> to pay transaction fees or know
+          how to buy <strong>(TRX)</strong> from exchanges?
         </li>
         <li>
-          I'm happy to use TronLink or similar Tron-enabled web wallet to store
-          my tokens.
+          Would I rather use{" "}
+          <a
+            href="https://www.tronlink.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TronLink
+          </a>{" "}
+          or a similar Tron-enabled web wallet to store my tokens?
         </li>
       </ul>
       <p>
@@ -76,8 +87,7 @@ const Guide = ({ isVisible, toggleVisible }) => {
       <h4>How to use Centric Swap</h4>
       <ol className="Guide__steps">
         <li>
-          Install a Tron-enabled web wallet for your device. Centric Swap
-          recommends{" "}
+          Install a Tron-enabled web wallet. We recommend{" "}
           <a
             href="https://www.tronlink.org/"
             target="_blank"
@@ -85,7 +95,7 @@ const Guide = ({ isVisible, toggleVisible }) => {
           >
             TronLink Wallet
           </a>
-          . Download it for your device.
+          .
           <br />
           <br />
           <Row gutter={[{ xs: 0, sm: 8, md: 16, lg: 16 }, 16]}>
@@ -138,9 +148,12 @@ const Guide = ({ isVisible, toggleVisible }) => {
           </Row>
         </li>
         <li>
-          Activate your wallet by sending it some TRX (Tron) to pay for Centric
-          Swap transaction fees (we recommend a minimum of 1 TRX) for more
-          information on this step,{" "}
+          Activate your wallet by sending some Tron <strong>(TRX)</strong> to
+          pay for Centric Swap transaction fees{" "}
+          <strong>
+            <i>(we recommend a minimum of 1 TRX)</i>
+          </strong>{" "}
+          for more information on this step, please{" "}
           <a
             href="https://steemit.com/tronlink/@ano123/simple-tronlink-guide-what-is-it-how-to-install-and-more"
             target="_blank"
@@ -148,19 +161,29 @@ const Guide = ({ isVisible, toggleVisible }) => {
           >
             view this guide
           </a>
+          .
         </li>
         <li>
-          Send the CNR or CNS you want to convert on Centric Swap from your
-          existing wallet which holds your tokens to your new Tron Wallet
-          address created in step 2.
+          Send <strong>CNR</strong> or <strong>CNS</strong> to your new Tron
+          Wallet address created in <strong>step 2</strong>.
         </li>
         <li>
-          Open www.centricswap.com with your wallet installed and ensure you are
-          logged in to your Tron-enabled web wallet
+          Open{" "}
+          <a
+            href="https://www.centricswap.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.centricswap.com
+          </a>{" "}
+          ensuring you are logged in to your new Tron Wallet.
         </li>
-        <li>Using Centric Swap, choose to convert CNR to CNS or CNS to CNR.</li>
-        <li>Using Centric Swap, enter the amount to convert.</li>
-        <li>Using Centric Swap, click "Swap" to start the conversion.</li>
+        <li>
+          Using Centric Swap, choose to convert <strong>CNR</strong> to{" "}
+          <strong>CNS</strong> or <strong>CNS</strong> to <strong>CNR</strong>.
+        </li>
+        <li>Enter the amount to convert.</li>
+        <li>Click "Swap" to start the conversion.</li>
         <li>
           You will be shown a dialog from your Tron Wallet, click “Approve” to
           confirm the transaction.
