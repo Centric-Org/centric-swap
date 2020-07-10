@@ -29,21 +29,26 @@
     }
   }
   .Icon__android {
-    max-width: 44%;
-    padding: 2px;
+    width: 56px;
+    height: 64px;
+    margin: 1px 0;
+    padding: 2px;    
     @media (max-width: 576px) {
       max-width: 70px;
     }
   }
   .Icon__apple {
-    max-width: 53%;
+    width: 56px;
+    height: 62px;
+    margin: 2px 0;
     padding: 2px;
     @media (max-width: 576px) {
       max-width: 70px;
     }
   }
   .Icon__chrome {
-    max-width: 53%;
+    width: 56px;
+    height: 66px;
     @media (max-width: 576px) {
       max-width: 150px;
     }
