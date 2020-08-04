@@ -15,11 +15,15 @@ const usePrice = () => {
 
   const getPrices = useCallback(async () => {
     try {
-      const { blockNumber, price } = await pricesService.getRisePrice();
+      const {
+        cashPrice,
+        blockNumber,
+        price,
+      } = await pricesService.getRisePrice();
       setPrices({
         priceStatus: PriceStatus.SUCCESS,
         cnr: price,
-        cns: 1,
+        cns: cashPrice,
         block: blockNumber,
       });
     } catch (e) {

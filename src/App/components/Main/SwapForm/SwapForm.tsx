@@ -55,6 +55,7 @@ const SwapForm = ({
         cnrPrice,
         cnsPrice
       );
+      console.log(cnsUsdAmount);
       setCnsUsd(cnsUsdAmount);
     }
   }, [account, cnrPrice, cnsPrice, priceStatus]);

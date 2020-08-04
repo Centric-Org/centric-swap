@@ -13,6 +13,7 @@ const {
 } = process.env;
 
 const TOKEN_DECIMALS = 100000000;
+const API_COINGEKO = "https://api.coingecko.com/api";
 
 export {
   REACT_APP_TRONSCAN_ADDRESS as TRONSCAN_ADDRESS,
@@ -25,4 +26,5 @@ export {
   REACT_APP_TRON_SOLIDITY_NODES as TRON_SOLIDITY_NODES,
   REACT_APP_TRON_PRIVATE_KEY as TRON_PRIVATE_KEY,
   TOKEN_DECIMALS,
+  API_COINGEKO,
 };

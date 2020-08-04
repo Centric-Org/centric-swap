@@ -1,9 +1,11 @@
 import * as TronWeb from "tronweb";
+import axios from "axios";
 import {
   RISE_CONTRACT_ADDRESS,
   TRON_FULL_HOST,
   TOKEN_DECIMALS,
   TRON_PRIVATE_KEY,
+  API_COINGEKO,
 } from "../../config";
 import { divide } from "../../utils/number";
 
@@ -32,21 +34,28 @@ class PricesService {
   public getRisePrice = async () => {
     try {
       if (this.riseContract) {
+        const cashPricePromise: any = axios.get(
+          `${API_COINGEKO}/v3/simple/price?ids=centric-cash&vs_currencies=usd`
+        );
         const blockPromise = this.riseContract.getCurrentHour().call();
         const pricePromise = this.riseContract.getCurrentPrice().call();
-        const [blockNumberHex, priceHex] = await Promise.all([
-          blockPromise,
-          pricePromise,
-        ]);
+        const [
+          { data: cashPriceResult },
+          blockNumberHex,
+          priceHex,
+        ] = await Promise.all([cashPricePromise, blockPromise, pricePromise]);
 
+        const { usd: cashPrice } = cashPriceResult["centric-cash"];
         const price = divide(await this.toDecimal(priceHex), TOKEN_DECIMALS);
         const blockNumber = await this.toDecimal(blockNumberHex);
         return {
+          cashPrice,
           price,
           blockNumber,
         };
       }
       return {
+        cashPrice: 0,
         price: 0,
         blockNumber: 0,
       };
