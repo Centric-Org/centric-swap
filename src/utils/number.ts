@@ -2,7 +2,7 @@ import { evaluate } from "mathjs";
 const formatDecimal = (number: number) => evaluate(number / 100000000);
 
 const formatLocal = (number, minDecimals, maxDecimals) =>
-  new Intl.NumberFormat(undefined, {
+  new Intl.NumberFormat("en-GB", {
     minimumFractionDigits: minDecimals,
     maximumFractionDigits: maxDecimals,
   }).format(number);
