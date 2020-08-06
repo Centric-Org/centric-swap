@@ -5,7 +5,7 @@ import {
   TRON_FULL_HOST,
   TOKEN_DECIMALS,
   TRON_PRIVATE_KEY,
-  API_COINGEKO,
+  API_ADDRESS,
 } from "../../config";
 import { divide } from "../../utils/number";
 
@@ -35,7 +35,7 @@ class PricesService {
     try {
       if (this.riseContract) {
         const cashPricePromise: any = axios.get(
-          `${API_COINGEKO}/v3/simple/price?ids=centric-cash&vs_currencies=usd`
+          `${API_ADDRESS}/public/contract/cmc-cns-quote`
         );
         const blockPromise = this.riseContract.getCurrentHour().call();
         const pricePromise = this.riseContract.getCurrentPrice().call();
@@ -45,7 +45,7 @@ class PricesService {
           priceHex,
         ] = await Promise.all([cashPricePromise, blockPromise, pricePromise]);
 
-        const { usd: cashPrice } = cashPriceResult["centric-cash"];
+        const cashPrice = cashPriceResult.data["5963"].quote.USD.price;
         const price = divide(await this.toDecimal(priceHex), TOKEN_DECIMALS);
         const blockNumber = await this.toDecimal(blockNumberHex);
         return {
