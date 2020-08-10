@@ -18,7 +18,7 @@ import {
   calculateReceiveAmount,
 } from "../../../utils/conversion";
 import { SwapForm, Summary, Confirm, Validation } from "./";
-import { Layout, Form } from "antd";
+import { Layout, Form, Row, Col } from "antd";
 import "./Main.scss";
 const { Content } = Layout;
 
@@ -187,41 +187,46 @@ const Main = ({ activeWallet, account, prices }) => {
 
   return (
     <Content className="Main">
-      <Form
-        className="Form"
-        name="swap-form"
-        form={form}
-        onFinish={(values) =>
-          triggerSwap(values, fromCurrency, toCurrency, displayValue)
-        }
-        layout="vertical"
-      >
-        <SwapForm
-          form={form}
-          account={account}
-          fromCurrency={fromCurrency}
-          changeFromCurrency={changeFromCurrency}
-          toCurrency={toCurrency}
-          changeToCurrency={changeToCurrency}
-          changeAmount={changeAmount}
-          changeValue={changeValue}
-          blurInput={blurInput}
-          prices={prices}
-        />
-        <Validation validation={validation} />
-        <Summary
-          displayAmount={displayAmount}
-          displayValue={displayValue}
-          fromCurrency={fromCurrency}
-          toCurrency={toCurrency}
-        />
-        <Confirm
-          validationStatus={validation.validationStatus}
-          fromCurrency={fromCurrency}
-          prices={prices}
-          swapStatus={swapStatus}
-        />
-      </Form>
+      <Row>
+        <Col span={12}></Col>
+        <Col span={10} offset={2}>
+          <Form
+            className="Form"
+            name="swap-form"
+            form={form}
+            onFinish={(values) =>
+              triggerSwap(values, fromCurrency, toCurrency, displayValue)
+            }
+            layout="vertical"
+          >
+            <SwapForm
+              form={form}
+              account={account}
+              fromCurrency={fromCurrency}
+              changeFromCurrency={changeFromCurrency}
+              toCurrency={toCurrency}
+              changeToCurrency={changeToCurrency}
+              changeAmount={changeAmount}
+              changeValue={changeValue}
+              blurInput={blurInput}
+              prices={prices}
+            />
+            <Validation validation={validation} />
+            <Summary
+              displayAmount={displayAmount}
+              displayValue={displayValue}
+              fromCurrency={fromCurrency}
+              toCurrency={toCurrency}
+            />
+            <Confirm
+              validationStatus={validation.validationStatus}
+              fromCurrency={fromCurrency}
+              prices={prices}
+              swapStatus={swapStatus}
+            />
+          </Form>
+        </Col>
+      </Row>
     </Content>
   );
 };

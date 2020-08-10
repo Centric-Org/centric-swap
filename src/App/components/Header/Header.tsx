@@ -32,7 +32,7 @@ const Header = ({ activeWallet, account, toggleGuide }) => {
   return (
     <header className="Header">
       <div>
-        <ShowIcon icon="logo_swap" />
+        <ShowIcon icon="logo_white" />
       </div>
       <div>
         <Dropdown

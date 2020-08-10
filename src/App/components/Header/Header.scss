@@ -1,9 +1,10 @@
 .Header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 12px 15px 6px 15px;
-  .Icon__swapLogo {
+  align-items: center;
+  padding: 8px 15px;
+  background-color: #22292E;
+  .Icon__centricLogo {
     max-width: 150px;
   }
 }
@@ -20,7 +21,7 @@
     &:active,
     &:hover,
     &:focus {
-      color: rgba(0, 0, 0, 0.65);
+      color: rgba(255, 255, 255, 0.8);
     } 
     .ant-badge-status-dot {
       width: 9px;

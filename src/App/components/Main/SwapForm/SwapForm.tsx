@@ -85,12 +85,14 @@ const SwapForm = ({
     <Row justify="center" className="SwapForm container">
       <Col className="container__column">
         <Row gutter={[{ xs: 0, sm: 0, md: 16, lg: 32 }, 0]}>
-          <Col
-            xs={{ span: 24 }}
-            sm={{ span: 24 }}
-            md={{ span: 11 }}
-            className="Main__column"
-          >
+          <Col span={24} className="Main__column">
+            <AmountSelect
+              form={form}
+              disabled={priceStatus !== PriceStatus.SUCCESS}
+              fromCurrency={fromCurrency}
+              account={account}
+              changeAmount={changeAmount}
+            />
             <Form.Item label="Swap">
               <CurrencySelect
                 type="swap"
@@ -104,14 +106,6 @@ const SwapForm = ({
                 cnsConvert={cnsConvert}
               />
             </Form.Item>
-
-            <AmountSelect
-              form={form}
-              disabled={priceStatus !== PriceStatus.SUCCESS}
-              fromCurrency={fromCurrency}
-              account={account}
-              changeAmount={changeAmount}
-            />
 
             <Form.Item className="SwapForm__input" name="amount">
               <Input
@@ -165,23 +159,13 @@ const SwapForm = ({
               />
             </Form.Item>
           </Col>
-          <Col
-            xs={{ span: 24 }}
-            sm={{ span: 24 }}
-            md={{ span: 2 }}
-            className="Main__column__swap"
-          >
+          <Col span={24} className="Main__column__swap">
             <SwapButton
               fromCurrency={fromCurrency}
               changeFromCurrency={changeFromCurrency}
             />
           </Col>
-          <Col
-            xs={{ span: 24 }}
-            sm={{ span: 24 }}
-            md={{ span: 11 }}
-            className="Main__column Main__column--receive"
-          >
+          <Col span={24} className="Main__column Main__column--receive">
             <Form.Item label="Receive">
               <CurrencySelect
                 type="receive"
