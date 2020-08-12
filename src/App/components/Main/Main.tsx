@@ -13,7 +13,6 @@ import {
   countDecimals,
 } from "../../../utils/number";
 import {
-  calculateTokenAmount,
   calculateTokenValue,
   calculateReceiveAmount,
 } from "../../../utils/conversion";
@@ -34,7 +33,6 @@ const Main = ({ activeWallet, account, prices, toggleGuide }) => {
   const [toCurrency, setToCurrency]: [Currency, any] = useState(Currency.CNS);
   const [amount, amountChange]: [string | null, any] = useState(null); //swap amount
   const [value, valueChange]: [string | null, any] = useState(null); //swap usd value
-  const [displayAmount, setDisplayAmount]: [string, any] = useState("0.00");
   const [displayValue, setDisplayValue]: [string, any] = useState("0.00");
   const validation: ValidationInterface = useValidation({
     form,
@@ -109,14 +107,6 @@ const Main = ({ activeWallet, account, prices, toggleGuide }) => {
     // pretty fromCurrency amount for display in summary
     const inputText = amount ? amount : "0";
     const inputAmount = Number(inputText.replace(/,/g, ""));
-    const decimals = !isNaN(inputAmount)
-      ? countDecimals(inputText.toString())
-      : 2;
-    setDisplayAmount(
-      isNaN(inputAmount)
-        ? "0.00"
-        : formatLocal(inputAmount.toString(), 2, decimals < 2 ? 2 : decimals)
-    );
 
     const receiveAmount =
       isNaN(inputAmount) || priceStatus !== PriceStatus.SUCCESS
@@ -208,7 +198,6 @@ const Main = ({ activeWallet, account, prices, toggleGuide }) => {
               <Validation validation={validation} />
               <Confirm
                 validationStatus={validation.validationStatus}
-                fromCurrency={fromCurrency}
                 prices={prices}
                 swapStatus={swapStatus}
               />

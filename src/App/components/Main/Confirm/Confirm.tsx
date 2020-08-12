@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { EXPLORER_ADDRESS } from "../../../../config";
 import {
-  Currency,
   ValidationStatus,
   PriceStatus,
   SwapStatus,
   SwapMessage,
 } from "../../../store/models";
-import { calculateReceiveAmount } from "../../../../utils/conversion";
 import { ShowIcon } from "../../";
 import { Row, Col } from "antd";
 import "./Confirm.scss";
@@ -56,8 +54,8 @@ const RenderSwapButton = ({ validationStatus, swapStatus }) => {
   );
 };
 
-const Confirm = ({ validationStatus, fromCurrency, prices, swapStatus }) => {
-  const { priceStatus, cnr: cnrPrice, block } = prices;
+const Confirm = ({ validationStatus, prices, swapStatus }) => {
+  const { priceStatus, block } = prices;
 
   return (
     <Row justify="center" className="Confirm container">

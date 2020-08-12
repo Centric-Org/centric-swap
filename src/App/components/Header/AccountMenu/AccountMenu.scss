@@ -1,4 +1,7 @@
 .AccountMenu {
+  &.ant-menu.ant-menu-dark {
+    background-color: #22292E;
+  } 
   .Icon {
     margin-right: 4px;
   }
@@ -32,6 +35,8 @@
     }
   }
   &__balance {
+    color: #fff;
+    opacity: 1 !important;
     &:first-child {
       margin-top: 12px !important;
     }

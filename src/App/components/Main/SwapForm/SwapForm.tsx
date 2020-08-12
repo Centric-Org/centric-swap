@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Currency, PriceStatus, AccountStatus } from "../../../store/models";
-import { formatLocal } from "../../../../utils/number";
-import {
-  calculateTokenValue,
-  calculateReceiveAmount,
-} from "../../../../utils/conversion";
+import { Currency, PriceStatus } from "../../../store/models";
+import { calculateReceiveAmount } from "../../../../utils/conversion";
 import CurrencySelect from "./CurrencySelect/CurrencySelect";
 import SwapButton from "./SwapButton/SwapButton";
 import AmountSelect from "./AmountSelect/AmountSelect";
-import { Row, Col, Form, Input, Divider } from "antd";
+import { Row, Col, Form, Input } from "antd";
 import "./SwapForm.scss";
 
 const SwapForm = ({
@@ -25,11 +21,7 @@ const SwapForm = ({
   blurInput,
   prices,
 }) => {
-  const { priceStatus, cnr: cnrPrice, cns: cnsPrice } = prices;
-  const [cnrUsd, setCnrUsd]: [string, any] = useState("0.00");
-  const [cnsUsd, setCnsUsd]: [string, any] = useState("0.00");
-  const [cnrConvert, setCnrConvert]: [string, any] = useState("0");
-  const [cnsConvert, setCnsConvert]: [string, any] = useState("0");
+  const { priceStatus, cnr: cnrPrice } = prices;
 
   const [converRate, setConverRate]: [string | null, any] = useState(null);
 
@@ -40,59 +32,6 @@ const SwapForm = ({
     }
   }, [cnrPrice, fromCurrency, priceStatus]);
 
-  useEffect(() => {
-    if (
-      account.accountStatus === AccountStatus.ACTIVE &&
-      priceStatus === PriceStatus.SUCCESS
-    ) {
-      const cnrUsdAmount = calculateTokenValue(
-        Currency.CNR,
-        account[Currency.CNR].balance,
-        cnrPrice,
-        cnsPrice
-      );
-      setCnrUsd(cnrUsdAmount);
-    }
-  }, [account, cnrPrice, cnsPrice, priceStatus]);
-
-  useEffect(() => {
-    if (
-      account.accountStatus === AccountStatus.ACTIVE &&
-      priceStatus === PriceStatus.SUCCESS
-    ) {
-      const cnsUsdAmount = calculateTokenValue(
-        Currency.CNS,
-        account[Currency.CNS].balance,
-        cnrPrice,
-        cnsPrice
-      );
-      setCnsUsd(cnsUsdAmount);
-    }
-  }, [account, cnrPrice, cnsPrice, priceStatus]);
-
-  useEffect(() => {
-    if (priceStatus === PriceStatus.SUCCESS) {
-      const cnrConvertAmount = calculateReceiveAmount(
-        Currency.CNR,
-        1,
-        cnrPrice
-      );
-      setCnrConvert(cnrConvertAmount);
-    }
-  }, [cnrPrice, cnsPrice, priceStatus]);
-
-  useEffect(() => {
-    if (priceStatus === PriceStatus.SUCCESS) {
-      const cnsConvertAmount = calculateReceiveAmount(
-        Currency.CNS,
-        1,
-        cnrPrice
-      );
-      setCnsConvert(cnsConvertAmount);
-    }
-  }, [cnrPrice, cnsPrice, priceStatus]);
-
-  console.log(displayValue);
   useEffect(() => {
     form.setFieldsValue({
       receive: displayValue,
