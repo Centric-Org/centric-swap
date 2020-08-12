@@ -1,38 +1,34 @@
 .Main {
   width: 100%;
   max-width: 1170px;
+  height: calc(100vh - 54px);
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  &__vertical__container {
+    height: 100%;
+  }
 }
 
 .Main__column {
-  min-width: auto;
-  &--receive {
-    margin-top: 8px;
-  }
   .ant-form-item:not(.SwapForm__input):not(.SwapForm__amountSelect) {
     margin-bottom: 8px;
   }
-  &--input {
-    margin: 2vh 0 2vh;
-    padding-top: 2px !important;
-    .screen-md & {
-      margin: 0;
-    }
-  }
+}
+
+.Main__form__container {
+  background: #fff;
+  border-radius: 5px;
+  padding: 40px 40px 20px;
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(238,242,242,1);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(238,242,242,1);
+  box-shadow: 0px 0px 5px 5px rgba(238,242,242,1);
+
 }
 
 .Form {
   width: 100%;
-}
-
-.SwapForm {
-  margin: 5vh auto 20px;
-  .screen-md & {
-    margin: 6vh auto 22px;
-  }
 }
 
 .Summary {
@@ -40,13 +36,6 @@
   padding: 0 16px;
   .screen-md & {
     margin: 22px auto 8vh;
-  }
-}
-
-.Confirm {
-  margin: 2vh auto 22px;
-  .screen-md & {
-    margin: 6vh auto 22px;
   }
 }
 

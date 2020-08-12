@@ -157,40 +157,43 @@ const Main = ({ activeWallet, account, prices }) => {
 
   return (
     <Content className="Main">
-      <Row>
-        <Col span={12}></Col>
-        <Col span={10} offset={2}>
-          <Form
-            className="Form"
-            name="swap-form"
-            form={form}
-            onFinish={(values) =>
-              triggerSwap(values, fromCurrency, toCurrency, displayValue)
-            }
-            layout="vertical"
-          >
-            <SwapForm
+      <Row align="middle" className="Main__vertical__container">
+        <Col flex="auto"></Col>
+        <Col flex="450px">
+          <div className="Main__form__container">
+            <Form
+              className="Form"
+              name="swap-form"
               form={form}
-              account={account}
-              fromCurrency={fromCurrency}
-              changeFromCurrency={changeFromCurrency}
-              toCurrency={toCurrency}
-              changeToCurrency={changeToCurrency}
-              changeAmount={changeAmount}
-              displayValue={displayValue}
-              amount={amount}
-              usdValue={value}
-              blurInput={blurInput}
-              prices={prices}
-            />
-            <Validation validation={validation} />
-            <Confirm
-              validationStatus={validation.validationStatus}
-              fromCurrency={fromCurrency}
-              prices={prices}
-              swapStatus={swapStatus}
-            />
-          </Form>
+              onFinish={(values) =>
+                triggerSwap(values, fromCurrency, toCurrency, displayValue)
+              }
+              layout="vertical"
+            >
+              <SwapForm
+                form={form}
+                account={account}
+                fromCurrency={fromCurrency}
+                changeFromCurrency={changeFromCurrency}
+                toCurrency={toCurrency}
+                changeToCurrency={changeToCurrency}
+                changeAmount={changeAmount}
+                displayValue={displayValue}
+                amount={amount}
+                usdValue={value}
+                blurInput={blurInput}
+                prices={prices}
+              />
+
+              <Confirm
+                validationStatus={validation.validationStatus}
+                fromCurrency={fromCurrency}
+                prices={prices}
+                swapStatus={swapStatus}
+              />
+              <Validation validation={validation} />
+            </Form>
+          </div>
         </Col>
       </Row>
     </Content>

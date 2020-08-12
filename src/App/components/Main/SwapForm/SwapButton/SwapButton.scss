@@ -1,6 +1,6 @@
 .SwapButton {
   background-color: #EEF2F2;
-  padding: 8px;
+  padding: 8px 10px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -14,7 +14,7 @@
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
-    width: 22px;
+    width: 18px;
   }
   &.rotate {
     > img {
