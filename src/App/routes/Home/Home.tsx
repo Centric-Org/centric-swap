@@ -54,7 +54,12 @@ const Home = () => {
             account={account}
             toggleGuide={toggleGuideVisible}
           />
-          <Main activeWallet={activeWallet} account={account} prices={prices} />
+          <Main
+            activeWallet={activeWallet}
+            account={account}
+            prices={prices}
+            toggleGuide={toggleGuideVisible}
+          />
         </Col>
       </Row>
       <InstallWallet

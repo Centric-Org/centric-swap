@@ -11,12 +11,52 @@
   }
 }
 
-.Logo__text {
+.Main__content {
+  color: #22292E;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  .Icon__swapLogo {
+    width: 116px;
+  }
+}
+
+.Main__content__logoText {
   font-family: 'GothamRounded-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 36px;
+  font-size: 52px;
+  margin-bottom: 0px;
   > span {
     font-family: 'GothamRounded-Book', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 36px;
+  }
+}
+
+.Main__content__text {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.Main__content__features {
+  list-style: none;
+  padding-left: 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  > li {
+    margin-bottom: 8px;
+    > .anticon {
+      color: #0065F2;
+      margin-right: 8px;
+    }
+  }
+}
+
+.Main__content__action {
+  color: #00E799;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  padding-left: 0;
+  > .anticon + span {
+    margin-left: 12px;
   }
 }
 
@@ -49,9 +89,5 @@
 }
 
 .Validation {
-  margin: 20px auto;
-  min-height: 46px;
-  .screen-md & {
-    margin: 22px auto;
-  }
+  height: 14px;
 }

@@ -42,10 +42,10 @@
     height: 22px;
   }
   &--idle {
-    background: rgba(0, 0, 0, 0.25);
+    background: #00E799;
   }
   &--success {
-    background:#123F85;
+    background:#00C500;
   }
   &--failed {
     background:rgba(208, 2, 27, 0.4);
@@ -54,7 +54,7 @@
     background:#123F85;
   }
   &--resultSuccess {
-    background:#4CAF50;
+    background:#00C500;
   }
   &--resultFailed {
     background:#c62828;

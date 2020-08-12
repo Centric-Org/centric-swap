@@ -10,7 +10,6 @@
   display: flex;
   justify-content: space-between;
   color: #A4A4A4;
-  height: 38px;
   margin-bottom: 8px;
 }
 
@@ -22,6 +21,9 @@
   background-color: #fff;
   border: 1px solid #EEF2F2;
   border-radius: 5px 0 0 5px;
+  &--disabled {
+    background-color: #F9F9F9;
+  }
   input[type=number]::-webkit-inner-spin-button, 
   input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;

@@ -165,7 +165,7 @@ const SwapForm = ({
           <Col span={24} className="Main__column Main__column--receive">
             <div className="SwapForm__item">
               <Form.Item
-                className="SwapForm__input"
+                className="SwapForm__input SwapForm__input--disabled"
                 label="Receive"
                 name="receive"
               >

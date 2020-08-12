@@ -18,11 +18,13 @@ import {
   calculateReceiveAmount,
 } from "../../../utils/conversion";
 import { SwapForm, Confirm, Validation } from "./";
-import { Layout, Form, Row, Col } from "antd";
+import { ShowIcon } from "../";
+import { Layout, Form, Row, Col, Button } from "antd";
+import { QuestionCircleFilled, CheckCircleFilled } from "@ant-design/icons";
 import "./Main.scss";
 const { Content } = Layout;
 
-const Main = ({ activeWallet, account, prices }) => {
+const Main = ({ activeWallet, account, prices, toggleGuide }) => {
   const { cnr: cnrPrice, cns: cnsPrice, priceStatus } = prices;
 
   const [form] = Form.useForm();
@@ -159,10 +161,30 @@ const Main = ({ activeWallet, account, prices }) => {
     <Content className="Main">
       <Row align="middle" className="Main__vertical__container">
         <Col flex="auto">
-          <div className="Main__content__container">
-            <h1 className="Logo__text">
+          <div className="Main__content">
+            <ShowIcon icon="logo_swap" />
+            <h1 className="Main__content__logoText">
               Centric <span>Swap</span>
             </h1>
+            <p className="Main__content__text">
+              Easily convert between CNR and CNS.
+            </p>
+            <ul className="Main__content__features">
+              <li>
+                <CheckCircleFilled /> Decentralized
+              </li>
+              <li>
+                <CheckCircleFilled /> Censorship Resistant
+              </li>
+            </ul>
+            <Button
+              className="Main__content__action"
+              type="link"
+              icon={<QuestionCircleFilled />}
+              onClick={() => toggleGuide(true)}
+            >
+              Centric Swap Guide
+            </Button>
           </div>
         </Col>
         <Col flex="450px">
@@ -190,14 +212,13 @@ const Main = ({ activeWallet, account, prices }) => {
                 blurInput={blurInput}
                 prices={prices}
               />
-
+              <Validation validation={validation} />
               <Confirm
                 validationStatus={validation.validationStatus}
                 fromCurrency={fromCurrency}
                 prices={prices}
                 swapStatus={swapStatus}
               />
-              <Validation validation={validation} />
             </Form>
           </div>
         </Col>

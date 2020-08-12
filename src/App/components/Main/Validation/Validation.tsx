@@ -1,6 +1,6 @@
 import React from "react";
 import { ValidationStatus } from "../../../store/models";
-import { Row, Col, Alert } from "antd";
+import { Row, Col } from "antd";
 import "./Validation.scss";
 
 const Validation = ({ validation }) => {
@@ -9,11 +9,7 @@ const Validation = ({ validation }) => {
     <Row justify="center" className="Validation container">
       <Col className="container__column">
         {validationStatus === ValidationStatus.FAILED ? (
-          <Alert
-            message={validationMessage}
-            type="error"
-            className="Validation__error"
-          />
+          <p className="Validation__error">{validationMessage}</p>
         ) : null}
       </Col>
     </Row>
