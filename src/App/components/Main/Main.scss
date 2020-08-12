@@ -80,14 +80,7 @@
   width: 100%;
 }
 
-.Summary {
-  margin: 22px auto 4vh;
-  padding: 0 16px;
-  .screen-md & {
-    margin: 22px auto 8vh;
-  }
-}
-
 .Validation {
-  height: 14px;
+  margin-top: -4px;
+  height: 22px;
 }

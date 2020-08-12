@@ -60,9 +60,10 @@
       line-height: 30px;
       border: none;
       &::placeholder {
-        color: #fff;
+        color: #242C30;
       }
       &:focus {
+        box-shadow: none;
         &::placeholder {
           color: rgba($color: #fff, $alpha: 0.45);
         }

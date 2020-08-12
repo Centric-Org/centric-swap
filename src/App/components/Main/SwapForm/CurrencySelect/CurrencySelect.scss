@@ -20,19 +20,20 @@
     }
   }
   &:hover {
+    background-color: rgba($color: #EEF2F2, $alpha: 0.65);
     .ant-select-arrow {
-      color: rgba($color: #fff, $alpha: 0.85);
+      color: rgba($color: #242C30, $alpha: 0.85);
     }
   }
 }
 
 .CurrencySelect__options {
-  background-color: #EEF2F2;
+  background-color: rgba($color: #fff, $alpha: 1);
   .ant-select-item-option-active {
-    background-color: rgba($color: #fff, $alpha: 0.4);
+    background-color: #EEF2F2;
   }
   .ant-select-item-option-selected {
-    background-color: rgba($color: #fff, $alpha: 0.2);
+    background-color: #EEF2F2;
   }
 }
 
@@ -46,7 +47,7 @@
     line-height: 16px;
     font-family: 'GothamRounded-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #929393;
-    margin-top: -2px;
+    margin-top: -4px;
   }
   &__content {
     display: flex;
@@ -54,6 +55,7 @@
     font-size: 26px;
     line-height: 30px;
     color: #242C30;
+    font-weight: 400;
   }
   .Icon {
     &__tokenIcon {

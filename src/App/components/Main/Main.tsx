@@ -89,13 +89,6 @@ const Main = ({ activeWallet, account, prices, toggleGuide }) => {
   const blurInput = (field, fieldValue) => {
     // pretty amount and value on form field blur
     const inputText = fieldValue.replace(/,/g, "");
-    if (field === "value") {
-      form.setFieldsValue({
-        value: ["", "0.", "0", "0.0", "0.00"].includes(inputText)
-          ? null
-          : formatLocal(inputText, 2, 2),
-      });
-    }
     if (field === "amount") {
       const inputAmount = Number(inputText);
       const decimals = !isNaN(inputAmount) ? countDecimals(inputText) : 2;

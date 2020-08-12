@@ -92,6 +92,7 @@ const SwapForm = ({
     }
   }, [cnrPrice, cnsPrice, priceStatus]);
 
+  console.log(displayValue);
   useEffect(() => {
     form.setFieldsValue({
       receive: displayValue,
@@ -147,11 +148,11 @@ const SwapForm = ({
                 {priceStatus === PriceStatus.SUCCESS &&
                   (fromCurrency === Currency.CNR ? (
                     <span>
-                      {amount} CNR = ${usdValue} USD
+                      {amount ? amount : 0} CNR = ${usdValue ? usdValue : 0} USD
                     </span>
                   ) : (
                     <span>
-                      {amount} CNS = ${usdValue} USD
+                      {amount ? amount : 0} CNS = ${usdValue ? usdValue : 0} USD
                     </span>
                   ))}
               </div>
