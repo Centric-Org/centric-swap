@@ -7,3 +7,13 @@ body {
 .ant-layout {
   background: none !important;
 }
+
+@font-face {
+  font-family: 'GothamRounded-Medium';
+  src: local('GothamRounded-Medium'), url(./fonts/GothamRounded-Medium.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'GothamRounded-Book';
+  src: local('GothamRounded-Book'), url(./fonts/GothamRounded-Book.otf) format('opentype');
+}

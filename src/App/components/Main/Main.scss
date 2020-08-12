@@ -11,6 +11,15 @@
   }
 }
 
+.Logo__text {
+  font-family: 'GothamRounded-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  > span {
+    font-family: 'GothamRounded-Book', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 36px;
+  }
+}
+
 .Main__column {
   .ant-form-item:not(.SwapForm__input):not(.SwapForm__amountSelect) {
     margin-bottom: 8px;

@@ -158,7 +158,13 @@ const Main = ({ activeWallet, account, prices }) => {
   return (
     <Content className="Main">
       <Row align="middle" className="Main__vertical__container">
-        <Col flex="auto"></Col>
+        <Col flex="auto">
+          <div className="Main__content__container">
+            <h1 className="Logo__text">
+              Centric <span>Swap</span>
+            </h1>
+          </div>
+        </Col>
         <Col flex="450px">
           <div className="Main__form__container">
             <Form
