@@ -2,21 +2,11 @@ import React from "react";
 import { Currency } from "../../../../store/models";
 import { ShowIcon } from "../../../";
 import { Select } from "antd";
-import { CaretDownOutlined } from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
 import "./CurrencySelect.scss";
 const { Option } = Select;
 
-const CurrencySelect = ({
-  type,
-  currency,
-  onCurrencyChange,
-  riseBalance,
-  cashBalance,
-  riseUsd,
-  cnsUsd,
-  cnrConvert,
-  cnsConvert,
-}) => {
+const CurrencySelect = ({ currency, onCurrencyChange }) => {
   return (
     <Select
       defaultValue={currency}
@@ -26,61 +16,23 @@ const CurrencySelect = ({
       dropdownClassName="CurrencySelect__options"
       size="large"
       bordered={false}
-      suffixIcon={<CaretDownOutlined onClick={() => onCurrencyChange} />}
+      suffixIcon={<DownOutlined onClick={() => onCurrencyChange} />}
     >
       <Option value={Currency.CNR}>
         <div className="CurrencySelect__option">
-          <div className="CurrencySelect__option__leftSide">
+          <div className="CurrencySelect__option__title">Centric Rise</div>
+          <div className="CurrencySelect__option__content">
             <ShowIcon icon={Currency.CNR} />
-          </div>
-          <div className="CurrencySelect__option__rightSide">
-            <div>
-              <ShowIcon icon="cnr_text" />
-            </div>
-            <div className="CurrencySelect__option__data">
-              {type === "swap" ? (
-                <>
-                  <span className="CurrencySelect__option__balance">
-                    {riseBalance} CNR
-                  </span>
-                  <span className="CurrencySelect__option__value">
-                    ${riseUsd}
-                  </span>
-                </>
-              ) : (
-                <span className="CurrencySelect__option__balance">
-                  1 CNS = {cnsConvert} CNR
-                </span>
-              )}
-            </div>
+            <div>CNR</div>
           </div>
         </div>
       </Option>
       <Option value={Currency.CNS}>
         <div className="CurrencySelect__option">
-          <div className="CurrencySelect__option__leftSide">
+          <div className="CurrencySelect__option__title">Centric Cash</div>
+          <div className="CurrencySelect__option__content">
             <ShowIcon icon={Currency.CNS} />
-          </div>
-          <div className="CurrencySelect__option__rightSide">
-            <div>
-              <ShowIcon icon="cns_text" />
-            </div>
-            <div className="CurrencySelect__option__data">
-              {type === "swap" ? (
-                <>
-                  <span className="CurrencySelect__option__balance">
-                    {cashBalance} CNS
-                  </span>
-                  <span className="CurrencySelect__option__value">
-                    ${cnsUsd}
-                  </span>
-                </>
-              ) : (
-                <span className="CurrencySelect__option__balance">
-                  1 CNR = {cnrConvert} CNS
-                </span>
-              )}
-            </div>
+            <div>CNS</div>
           </div>
         </div>
       </Option>

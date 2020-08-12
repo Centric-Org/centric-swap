@@ -19,7 +19,9 @@ const SwapForm = ({
   toCurrency,
   changeToCurrency,
   changeAmount,
-  changeValue,
+  amount,
+  displayValue,
+  usdValue,
   blurInput,
   prices,
 }) => {
@@ -28,6 +30,15 @@ const SwapForm = ({
   const [cnsUsd, setCnsUsd]: [string, any] = useState("0.00");
   const [cnrConvert, setCnrConvert]: [string, any] = useState("0");
   const [cnsConvert, setCnsConvert]: [string, any] = useState("0");
+
+  const [converRate, setConverRate]: [string | null, any] = useState(null);
+
+  useEffect(() => {
+    if (priceStatus === PriceStatus.SUCCESS) {
+      const rate = calculateReceiveAmount(fromCurrency, 1, cnrPrice);
+      setConverRate(rate);
+    }
+  }, [cnrPrice, fromCurrency, priceStatus]);
 
   useEffect(() => {
     if (
@@ -81,6 +92,12 @@ const SwapForm = ({
     }
   }, [cnrPrice, cnsPrice, priceStatus]);
 
+  useEffect(() => {
+    form.setFieldsValue({
+      receive: displayValue,
+    });
+  }, [displayValue, form]);
+
   return (
     <Row justify="center" className="SwapForm container">
       <Col className="container__column">
@@ -93,92 +110,90 @@ const SwapForm = ({
               account={account}
               changeAmount={changeAmount}
             />
-            <Form.Item label="Swap">
-              <CurrencySelect
-                type="swap"
-                currency={fromCurrency}
-                onCurrencyChange={changeFromCurrency}
-                riseBalance={formatLocal(account[Currency.CNR].balance, 2, 8)}
-                cashBalance={formatLocal(account[Currency.CNS].balance, 2, 8)}
-                riseUsd={cnrUsd}
-                cnsUsd={cnsUsd}
-                cnrConvert={cnrConvert}
-                cnsConvert={cnsConvert}
+            <div className="SwapForm__item">
+              <Form.Item className="SwapForm__input" label="Swap" name="amount">
+                <Input
+                  disabled={priceStatus !== PriceStatus.SUCCESS}
+                  placeholder={"0.00"}
+                  size="large"
+                  autoComplete="off"
+                  pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]"
+                  onPaste={(e: any) => {
+                    form.setFieldsValue({
+                      amountSelect: undefined,
+                    });
+                    changeAmount(e.target.value);
+                  }}
+                  onChange={(e: any) => {
+                    form.setFieldsValue({
+                      amountSelect: undefined,
+                    });
+                    changeAmount(e.target.value);
+                  }}
+                  onBlur={(e: any) => {
+                    blurInput("amount", e.target.value);
+                  }}
+                />
+              </Form.Item>
+              <Form.Item>
+                <CurrencySelect
+                  currency={fromCurrency}
+                  onCurrencyChange={changeFromCurrency}
+                />
+              </Form.Item>
+            </div>
+            <div className="SwapForm__info">
+              <div>
+                {priceStatus === PriceStatus.SUCCESS &&
+                  (fromCurrency === Currency.CNR ? (
+                    <span>
+                      {amount} CNR = ${usdValue} USD
+                    </span>
+                  ) : (
+                    <span>
+                      {amount} CNS = ${usdValue} USD
+                    </span>
+                  ))}
+              </div>
+              <SwapButton
+                fromCurrency={fromCurrency}
+                changeFromCurrency={changeFromCurrency}
               />
-            </Form.Item>
+            </div>
+          </Col>
 
-            <Form.Item className="SwapForm__input" name="amount">
-              <Input
-                disabled={priceStatus !== PriceStatus.SUCCESS}
-                placeholder={"0.00"}
-                suffix={fromCurrency}
-                size="large"
-                autoComplete="off"
-                pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]"
-                onPaste={(e: any) => {
-                  form.setFieldsValue({
-                    amountSelect: undefined,
-                  });
-                  changeAmount(e.target.value);
-                }}
-                onChange={(e: any) => {
-                  form.setFieldsValue({
-                    amountSelect: undefined,
-                  });
-                  changeAmount(e.target.value);
-                }}
-                onBlur={(e: any) => {
-                  blurInput("amount", e.target.value);
-                }}
-              />
-            </Form.Item>
-            <Divider className="SwapForm__divider" />
-            <Form.Item className="SwapForm__input" name="value">
-              <Input
-                disabled={priceStatus !== PriceStatus.SUCCESS}
-                placeholder={"0.00"}
-                suffix={"USD"}
-                size="large"
-                autoComplete="off"
-                pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]"
-                onPaste={(e: any) => {
-                  form.setFieldsValue({
-                    amountSelect: undefined,
-                  });
-                  changeValue(e.target.value);
-                }}
-                onChange={(e: any) => {
-                  form.setFieldsValue({
-                    amountSelect: undefined,
-                  });
-                  changeValue(e.target.value);
-                }}
-                onBlur={(e: any) => {
-                  blurInput("value", e.target.value);
-                }}
-              />
-            </Form.Item>
-          </Col>
-          <Col span={24} className="Main__column__swap">
-            <SwapButton
-              fromCurrency={fromCurrency}
-              changeFromCurrency={changeFromCurrency}
-            />
-          </Col>
           <Col span={24} className="Main__column Main__column--receive">
-            <Form.Item label="Receive">
-              <CurrencySelect
-                type="receive"
-                currency={toCurrency}
-                onCurrencyChange={changeToCurrency}
-                riseBalance={formatLocal(account[Currency.CNR].balance, 2, 8)}
-                cashBalance={formatLocal(account[Currency.CNS].balance, 2, 8)}
-                riseUsd={cnrUsd}
-                cnsUsd={cnsUsd}
-                cnrConvert={cnrConvert}
-                cnsConvert={cnsConvert}
-              />
-            </Form.Item>
+            <div className="SwapForm__item">
+              <Form.Item
+                className="SwapForm__input"
+                label="Receive"
+                name="receive"
+              >
+                <Input
+                  disabled={true}
+                  placeholder={"0.00"}
+                  size="large"
+                  autoComplete="off"
+                  pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]"
+                />
+              </Form.Item>
+              <Form.Item>
+                <CurrencySelect
+                  currency={toCurrency}
+                  onCurrencyChange={changeToCurrency}
+                />
+              </Form.Item>
+            </div>
+            <div className="SwapForm__info">
+              <div>
+                {priceStatus === PriceStatus.SUCCESS &&
+                  (fromCurrency === Currency.CNR ? (
+                    <span>1 CNR = {converRate} CNS</span>
+                  ) : (
+                    <span>1 CNS = {converRate} CNR</span>
+                  ))}
+              </div>
+            </div>
           </Col>
         </Row>
       </Col>

@@ -2,21 +2,16 @@
   display: flex;
   justify-content: center;
   &__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
   }
   &__stats {
     display: flex;
     justify-content: space-between;
-    color: #D8D8D8;
+    color: #A4A4A4;
     padding: 8px 2px;
-    > :last-child {
-      margin-left: 10px;
-    }
     &__link {
       text-decoration: underline;
-      color: rgba($color: #D8D8D8, $alpha: 0.75);
+      color: #A4A4A4;
       &:hover {
         color: #fff;
       }
@@ -25,13 +20,13 @@
 }
 
 .Confirm__button {
-  height: 64px;
   color: #fff;
-  min-width: 320px;
+  width: 100%;
   border: none;
-  font-size: 26px;
-  line-height: 28px;
-  border-radius: 10px;
+  font-size: 22px;
+  line-height: 26px;
+  border-radius: 5px;
+  padding: 10px;
   cursor: pointer;
   &:hover:not(:disabled) {
     background-color: #001529;
@@ -44,7 +39,7 @@
     outline: none;
   }
   > img {
-    height: 30px;
+    height: 22px;
   }
   &--idle {
     background: rgba(0, 0, 0, 0.25);

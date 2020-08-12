@@ -58,24 +58,14 @@ const RenderSwapButton = ({ validationStatus, swapStatus }) => {
 
 const Confirm = ({ validationStatus, fromCurrency, prices, swapStatus }) => {
   const { priceStatus, cnr: cnrPrice, block } = prices;
-  const [converRate, setConverRate]: [string | null, any] = useState(null);
-
-  useEffect(() => {
-    if (priceStatus === PriceStatus.SUCCESS) {
-      const rate = calculateReceiveAmount(fromCurrency, 1, cnrPrice);
-      setConverRate(rate);
-    }
-  }, [cnrPrice, fromCurrency, priceStatus]);
 
   return (
     <Row justify="center" className="Confirm container">
       <Col className="Confirm__inner">
-        <div>
-          <RenderSwapButton
-            validationStatus={validationStatus}
-            swapStatus={swapStatus}
-          />
-        </div>
+        <RenderSwapButton
+          validationStatus={validationStatus}
+          swapStatus={swapStatus}
+        />
         <div className="Confirm__stats">
           <div>
             {priceStatus === PriceStatus.SUCCESS && (
@@ -91,14 +81,6 @@ const Confirm = ({ validationStatus, fromCurrency, prices, swapStatus }) => {
                 </a>
               </span>
             )}
-          </div>
-          <div>
-            {priceStatus === PriceStatus.SUCCESS &&
-              (fromCurrency === Currency.CNR ? (
-                <span>1 CNR = {converRate} CNS</span>
-              ) : (
-                <span>1 CNS = {converRate} CNR</span>
-              ))}
           </div>
         </div>
       </Col>

@@ -1,22 +1,20 @@
 .CurrencySelect {
-  background-color: rgba($color: #07245A, $alpha: 0.67);
-  height: 64px;
-  border-radius: 10px;
-  -webkit-box-shadow: inset 6px 14px 16px -2px rgba(7,36,90,1);
-  -moz-box-shadow: inset 6px 14px 16px -2px rgba(7,36,90,1);
-  box-shadow: inset 6px 14px 16px -2px rgba(7,36,90,1);
+  background-color: #EEF2F2;
+  height: 60px;
+  width: 136px !important;
+  border-radius: 0 5px 5px 0;  
   > div.ant-select-selector {
-    height: 64px !important;
+    height: 60px !important;
   }
   &.ant-select-show-arrow .ant-select-selection-item {
-    padding-right: 30px;
+    padding-right: 18px;
   }
   .ant-select-arrow {
-    font-size: 32px;
-    width: 32px;
-    height: 32px;
-    top: 38%;
-    color: rgba($color: #fff, $alpha: 0.4);
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    color: #B8BCBC;
     .anticon:not(.anticon-down) {
       pointer-events: none !important;
     }
@@ -29,7 +27,7 @@
 }
 
 .CurrencySelect__options {
-  background-color: #001529;
+  background-color: #EEF2F2;
   .ant-select-item-option-active {
     background-color: rgba($color: #fff, $alpha: 0.4);
   }
@@ -40,49 +38,23 @@
 
 .CurrencySelect__option {
   display: flex;
-  height: 64px;
-  &__leftSide {
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
+  &__title {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  &__content {
     display: flex;
     align-items: center;
-  }
-  &__rightSide {
-    display: flex;
-    flex-direction: column;
-    line-height: 22px;
-    padding-left: 10px;
-    justify-content: center;
-  }
-  &__data {
-    margin-top: 1px;
-  }
-  &__balance {
-    line-height: 20px;
-    font-size: 13px;
-    color: #D8D8D8;
-  }
-  &__value {
-    line-height: 20px;
-    font-size: 13px;
-    color: #D8D8D8;
-    margin-left: 8px;
-    padding-left: 8px;
-    position: relative;
-    &::before {
-      content: "";
-      border-left: 1px solid #D8D8D8;
-      position: absolute;
-      left: 0;
-      top: calc(50% - 5px);
-      height: 11px;
-    }
+    font-size: 26px;
+    line-height: 30px;
   }
   .Icon {
     &__tokenIcon {
-      width: 46px;
-    }
-    &__cnrText,
-    &__cnsText {
-      height: 18px;
+      width: 20px;
+      margin-right: 8px;
     }
   }
 }

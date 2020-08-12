@@ -1,37 +1,29 @@
 .AmountSelect {
   &.ant-radio-group {
+    border: 1px solid #EEF2F2;
+    background: #EEF2F2;
+    border-radius: 5px;
+    padding: 1px;
     > label {
-      background: rgba(0,0,0,0.35);
+      color: #A2A3A3;
+      background: #EEF2F2;
       border: none;
       font-size: 13px;
-      line-height: 28px;
-      padding: 0 15px;
-      height: 28px;
+      line-height: 22px;
+      height: auto;
+      padding: 2px 18px;
       &.ant-radio-button-wrapper {
-        &-disabled {
-          &:first-child {
-            background: rgba(0,0,0,0.35);
-            color: #fff;
-          }
-        }
-        &:first-child {
-          border-left: none;
-          border-radius: 5px 0 0 5px;
-        }
-        &:last-child {
-          border-radius: 0 5px 5px 0;
-        }
         &::before {
           content: none;
         }
         &:hover {
-          background: rgba(0,0,0,0.85);
-          color: #fff;
+          background: #fff;
         }
       }
       &.ant-radio-button-wrapper-checked {
-        background: #123F85;
-        color: #fff;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: none;
       }
     }
   }

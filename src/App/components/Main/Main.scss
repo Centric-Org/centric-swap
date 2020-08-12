@@ -9,20 +9,8 @@
 
 .Main__column {
   min-width: auto;
-  &__swap {
-    display: none;
-    justify-content: center;
-    align-items: flex-start;
-    .screen-md & {
-      display: flex;
-      padding-top: 38px;
-    }
-  }
   &--receive {
-    display: none;
-    .screen-md & {
-      display: block;
-    }
+    margin-top: 8px;
   }
   .ant-form-item:not(.SwapForm__input):not(.SwapForm__amountSelect) {
     margin-bottom: 8px;

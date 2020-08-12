@@ -17,7 +17,7 @@ import {
   calculateTokenValue,
   calculateReceiveAmount,
 } from "../../../utils/conversion";
-import { SwapForm, Summary, Confirm, Validation } from "./";
+import { SwapForm, Confirm, Validation } from "./";
 import { Layout, Form, Row, Col } from "antd";
 import "./Main.scss";
 const { Content } = Layout;
@@ -73,36 +73,6 @@ const Main = ({ activeWallet, account, prices }) => {
       });
       amountChange(
         ["", "0.", "0", "0.0"].includes(newAmount) ? null : newAmount
-      );
-      valueChange(newValue);
-    } else {
-      //restrict input if exceed decimals or invalid char
-      form.setFieldsValue({
-        amount: amount === "0" ? null : amount,
-        value: value === "0" ? null : value,
-      });
-    }
-  };
-
-  const changeValue = (input) => {
-    // calculates amount and pretties value and amount on value change
-    const inputText = input.replace(/,/g, "");
-    const inputAmount = Number(inputText);
-    const decimals = !isNaN(inputAmount) ? countDecimals(inputText) : 0;
-    if (!isNaN(inputAmount) && decimals <= 2) {
-      const newValue = formatCurrency(`${inputText}`);
-      const newAmount = calculateTokenAmount(
-        fromCurrency,
-        inputAmount,
-        cnrPrice,
-        cnsPrice
-      );
-      form.setFieldsValue({
-        amount: newAmount === "0" ? null : newAmount,
-        value: newValue,
-      });
-      amountChange(
-        ["", "0.", "0", "0.0", "0.00"].includes(newAmount) ? "0.00" : newAmount
       );
       valueChange(newValue);
     } else {
@@ -207,17 +177,13 @@ const Main = ({ activeWallet, account, prices }) => {
               toCurrency={toCurrency}
               changeToCurrency={changeToCurrency}
               changeAmount={changeAmount}
-              changeValue={changeValue}
+              displayValue={displayValue}
+              amount={amount}
+              usdValue={value}
               blurInput={blurInput}
               prices={prices}
             />
             <Validation validation={validation} />
-            <Summary
-              displayAmount={displayAmount}
-              displayValue={displayValue}
-              fromCurrency={fromCurrency}
-              toCurrency={toCurrency}
-            />
             <Confirm
               validationStatus={validation.validationStatus}
               fromCurrency={fromCurrency}
