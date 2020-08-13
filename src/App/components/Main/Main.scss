@@ -1,20 +1,56 @@
 .Main {
   width: 100%;
-  max-width: 1170px;
+  max-width: 1070px;
   height: calc(100vh - 54px);
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  @media only screen and (max-width: 1200px) {
+    max-width: 900px;
+  }
   &__vertical__container {
     height: 100%;
+    padding-bottom: 60px;
+    .screen-xs & {
+      height: auto;
+      padding-bottom: 20px;
+    }
+    @media only screen and (max-width: 900px) {
+      justify-content: center;
+    }
+    > .ant-col {
+      &:first-child {
+        @media only screen and (max-width: 900px) {
+          padding: 20px 10px 10px;
+        }
+      }
+      &:nth-child(2) {
+        @media only screen and (max-width: 900px) {
+          padding: 10px 0 0;
+        }
+      }
+      
+    }
   }
 }
 
 .Main__content {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-right: 40px;
+  .screen-xs & {
+    padding: 30px 0 20px;
+    text-align: center;
+    padding-right: 0;
+  }
+  @media only screen and (max-width: 819px) {
+    text-align: center;
+  }
   .Icon__swapLogo {
     width: 116px;
+    .screen-xs & {
+      width: 58px;
+    }
   }
 }
 
@@ -25,12 +61,19 @@
   > span {
     font-family: 'GothamRounded-Book', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
+  @media only screen and (max-width: 900px) {
+    font-size: 26px;
+  }
 }
 
 .Main__content__text {
   font-size: 20px;
   line-height: 26px;
   font-weight: 400;
+  @media only screen and (max-width: 900px) {
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 .Main__content__features {
@@ -39,6 +82,10 @@
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
+  @media only screen and (max-width: 900px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
   > li {
     margin-bottom: 8px;
     > .anticon {
@@ -52,10 +99,21 @@
   color: #00E799;
   font-size: 18px;
   line-height: 24px;
-  font-weight: 500;
-  padding-left: 0;
-  > .anticon + span {
-    margin-left: 12px;
+  font-weight: 500;  
+  .screen-sm & {
+    padding-left: 0;
+  }
+  > span {
+    text-decoration: underline;
+  }
+  @media only screen and (max-width: 900px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: rgba($color: #00E799, $alpha: 0.65);;
   }
 }
 
@@ -72,7 +130,9 @@
   -webkit-box-shadow: 0px 0px 5px 5px rgba(238,242,242,1);
   -moz-box-shadow: 0px 0px 5px 5px rgba(238,242,242,1);
   box-shadow: 0px 0px 5px 5px rgba(238,242,242,1);
-
+  @media only screen and (max-width: 900px) {
+    padding: 16px 16px 10px;
+  }
 }
 
 .Form {

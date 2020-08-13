@@ -19,7 +19,7 @@ import {
 import { SwapForm, Confirm, Validation } from "./";
 import { ShowIcon } from "../";
 import { Layout, Form, Row, Col, Button } from "antd";
-import { QuestionCircleFilled, CheckCircleFilled } from "@ant-design/icons";
+import { CheckCircleFilled } from "@ant-design/icons";
 import "./Main.scss";
 const { Content } = Layout;
 
@@ -163,10 +163,9 @@ const Main = ({ activeWallet, account, prices, toggleGuide }) => {
             <Button
               className="Main__content__action"
               type="link"
-              icon={<QuestionCircleFilled />}
               onClick={() => toggleGuide(true)}
             >
-              Centric Swap Guide
+              View the Centric Swap Guide
             </Button>
           </div>
         </Col>

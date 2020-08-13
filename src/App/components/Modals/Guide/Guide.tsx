@@ -18,8 +18,7 @@ const Guide = ({ isVisible, toggleVisible }) => {
       <p>
         Centric Swap swiftly converts Centric tokens between Centric Rise{" "}
         <strong>(CNR)</strong> and Centric Cash <strong>(CNS)</strong>. It
-        offers a decentralized alternative to Centric Rise and Centric Cash
-        holders who do not wish to store their Centric tokens on the{" "}
+        offers a decentralized alternative to the{" "}
         <a
           href="https://wallet.joincentic.com"
           target="_blank"
@@ -37,11 +36,11 @@ const Guide = ({ isVisible, toggleVisible }) => {
       <h4>Is Centric Swap Right For Me?</h4>
       <ul className="Guide__checklist">
         <li>
-          Do I hold Centric Rise <strong>(CNR)</strong> or Centric Cash{" "}
+          I hold Centric Rise <strong>(CNR)</strong> or Centric Cash{" "}
           <strong>(CNS)</strong> and want to convert between them?
         </li>
         <li>
-          Would I prefer not to store my <strong>(CNR)</strong> or{" "}
+          I prefer not to store my <strong>(CNR)</strong> or{" "}
           <strong>(CNS)</strong> on the{" "}
           <a
             href="https://wallet.joincentic.com"
@@ -53,15 +52,15 @@ const Guide = ({ isVisible, toggleVisible }) => {
           ?
         </li>
         <li>
-          Do I want to pay a small transaction fee, approx 0.25 - 0.5, in Tron{" "}
+          I want to pay a small transaction fee, approx 0.25 - 0.5, in Tron{" "}
           <strong>(TRX)</strong>, to convert my tokens?
         </li>
         <li>
-          Do I have Tron <strong>(TRX)</strong> to pay transaction fees or know
-          how to buy <strong>(TRX)</strong> from exchanges?
+          I have Tron <strong>(TRX)</strong> to pay transaction fees or know how
+          to buy <strong>(TRX)</strong> from exchanges?
         </li>
         <li>
-          Would I rather use{" "}
+          I rather use{" "}
           <a
             href="https://www.tronlink.org/"
             target="_blank"

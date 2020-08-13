@@ -3,8 +3,15 @@
   height: 60px;
   width: 136px !important;
   border-radius: 0 5px 5px 0;  
+  @media only screen and (max-width: 900px) {
+    height: 46px !important;
+    width: 110px !important;
+  }
   > div.ant-select-selector {
     height: 60px !important;
+    @media only screen and (max-width: 900px) {
+      height: 46px !important;
+    }
   }
   &.ant-select-show-arrow .ant-select-selection-item {
     padding-right: 18px;
@@ -29,6 +36,9 @@
 
 .CurrencySelect__options {
   background-color: rgba($color: #fff, $alpha: 1);
+  .CurrencySelect__option__title {
+    margin-top: 0;
+  }
   .ant-select-item-option-active {
     background-color: #EEF2F2;
   }
@@ -42,12 +52,19 @@
   flex-direction: column;
   justify-content: center;
   height: 60px;
+  @media only screen and (max-width: 900px) {
+    height: 46px !important;
+  }
   &__title {
     font-size: 12px;
     line-height: 16px;
     font-family: 'GothamRounded-Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #929393;
     margin-top: -4px;
+    @media only screen and (max-width: 900px) {
+      font-size: 10px;
+      line-height: 14px;
+    }
   }
   &__content {
     display: flex;
@@ -56,11 +73,19 @@
     line-height: 30px;
     color: #242C30;
     font-weight: 400;
+    @media only screen and (max-width: 900px) {
+      font-size: 18px;
+      line-height: 20px;
+    }
   }
   .Icon {
     &__tokenIcon {
       width: 24px;
       margin-right: 6px;
+      @media only screen and (max-width: 900px) {
+        width: 18px;
+        margin-right: 4px;
+      }
     }
   }
 }

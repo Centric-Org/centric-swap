@@ -28,6 +28,11 @@
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
+  .screen-xs & {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 8px;
+  }
   &:hover:not(:disabled) {
     background-color: #001529;
   }

@@ -32,7 +32,13 @@ const Header = ({ activeWallet, account, toggleGuide }) => {
   return (
     <header className="Header">
       <div>
-        <ShowIcon icon="logo_white" />
+        <a
+          href="https://www.joincentric.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ShowIcon icon="logo_white" />
+        </a>
       </div>
       <div>
         <Dropdown

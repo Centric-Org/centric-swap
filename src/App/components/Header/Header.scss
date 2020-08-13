@@ -6,6 +6,9 @@
   background-color: #22292E;
   .Icon__centricLogo {
     max-width: 150px;
+    .screen-xs & {
+      max-width: 120px;
+    }
   }
 }
 
