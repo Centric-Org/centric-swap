@@ -37,15 +37,15 @@ const AccountMenu = ({ balances, walletStatus, address, toggleGuide }) => {
           Explorer
         </a>
       </Menu.Item>
-      {/*<Menu.Item className="AccountMenu__item">
+      <Menu.Item className="AccountMenu__item">
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.joincentric.com/faq-general/"
+          href="https://v1.centricswap.com"
         >
-          FAQ
+          Switch to V1
         </a>
-      </Menu.Item>*/}
+      </Menu.Item>
       <Menu.Item className="AccountMenu__guideTrigger">
         <Button type="link" onClick={() => toggleGuide(true)}>
           About Centric Swap

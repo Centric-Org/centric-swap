@@ -20,7 +20,7 @@ const Guide = ({ isVisible, toggleVisible }) => {
         <strong>(CNR)</strong> and Centric Cash <strong>(CNS)</strong>. It
         offers a decentralized alternative to the{" "}
         <a
-          href="https://wallet.joincentic.com"
+          href="https://wallet.joincentric.com"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -43,7 +43,7 @@ const Guide = ({ isVisible, toggleVisible }) => {
           I prefer not to store my <strong>(CNR)</strong> or{" "}
           <strong>(CNS)</strong> on the{" "}
           <a
-            href="https://wallet.joincentic.com"
+            href="https://wallet.joincentric.com"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -74,7 +74,7 @@ const Guide = ({ isVisible, toggleVisible }) => {
       <p>
         If you answered no to any of these questions we recommend you use the{" "}
         <a
-          href="https://wallet.joincentic.com"
+          href="https://wallet.joincentric.com"
           target="_blank"
           rel="noopener noreferrer"
         >
